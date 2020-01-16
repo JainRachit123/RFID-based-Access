@@ -13,20 +13,20 @@ void loop()
   if(Serial.available()) // CHECK FOR AVAILABILITY OF SERIAL DATA
   { 
     count = 0; // Reset the counter to zero
-    while(Serial.available() && count < 12) 
+    while(Serial.available() && count < 12)  // While will continue till data is available and count is less than 12
     {
       input[count] = Serial.read(); // Read 1 Byte of data and store it in the input[] variable
       count++; // increment counter 
       delay(5);
     }
-    Serial.println(input);
+    Serial.println(input);  
     if(count == 12)
     {
       count =0;
       flag = 1;
       while(count<12 && flag !=0) 
       {
-        if(tag[count]==input[count])
+        if(tag[count]==input[count])    // checking if the input rfid tag matches the tag Id define in program above
         {
         t++;
         break;
